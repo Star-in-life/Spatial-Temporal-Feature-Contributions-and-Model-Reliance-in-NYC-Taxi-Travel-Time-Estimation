@@ -1,0 +1,5 @@
+Feature_Set,Model,Seed,Omitted_Feature,TEST_MAE_s,TEST_MAE_unrounded_s
+"F1 (full, 21 features)",LightGBM,42,,252.24,252.23802691515462
+"F2 (full, 20 features)",LightGBM,42,,216.06,216.0609819153376
+F2 without month (19 features),LightGBM,42,month,216.73,216.7331617757561
+F3 without month (33 features),LightGBM,42,month,203.28,203.28370741793216

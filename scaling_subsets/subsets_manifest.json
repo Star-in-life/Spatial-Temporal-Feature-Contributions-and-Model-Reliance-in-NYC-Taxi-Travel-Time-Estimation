@@ -1,0 +1,72 @@
+[
+  {
+    "tier": "90k",
+    "train_size": 90000,
+    "per_month": 10000,
+    "train_file": "train_90k.parquet",
+    "val_file": "val_90k.parquet",
+    "test_file": "test_90k.parquet",
+    "te_od_mean": 2.3881560650694578,
+    "test_te_od_mean": 2.399528559974126
+  },
+  {
+    "tier": "180k",
+    "train_size": 180000,
+    "per_month": 20000,
+    "train_file": "train_180k.parquet",
+    "val_file": "val_180k.parquet",
+    "test_file": "test_180k.parquet",
+    "te_od_mean": 2.3882558869918578,
+    "test_te_od_mean": 2.4081821163302046
+  },
+  {
+    "tier": "360k",
+    "train_size": 360000,
+    "per_month": 40000,
+    "train_file": "train_360k.parquet",
+    "val_file": "val_360k.parquet",
+    "test_file": "test_360k.parquet",
+    "te_od_mean": 2.392601964125929,
+    "test_te_od_mean": 2.4206593112682997
+  },
+  {
+    "tier": "540k",
+    "train_size": 540000,
+    "per_month": 60000,
+    "train_file": "train_540k.parquet",
+    "val_file": "val_540k.parquet",
+    "test_file": "test_540k.parquet",
+    "te_od_mean": 2.3987203569720106,
+    "test_te_od_mean": 2.4282573681257738
+  },
+  {
+    "tier": "720k",
+    "train_size": 720000,
+    "per_month": 80000,
+    "train_file": "train_720k.parquet",
+    "val_file": "val_720k.parquet",
+    "test_file": "test_720k.parquet",
+    "te_od_mean": 2.40307689631804,
+    "test_te_od_mean": 2.433499467014994
+  },
+  {
+    "tier": "900k",
+    "train_size": 900000,
+    "per_month": 100000,
+    "train_file": "train_900k.parquet",
+    "val_file": "val_900k.parquet",
+    "test_file": "test_900k.parquet",
+    "te_od_mean": 2.407259910191916,
+    "test_te_od_mean": 2.437839079019567
+  },
+  {
+    "tier": "1080k",
+    "train_size": 1080000,
+    "per_month": 120000,
+    "train_file": "train_1080k.parquet",
+    "val_file": "val_1080k.parquet",
+    "test_file": "test_1080k.parquet",
+    "te_od_mean": 2.409864897680788,
+    "test_te_od_mean": 2.440770119933518
+  }
+]

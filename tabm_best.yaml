@@ -1,0 +1,14 @@
+model: TabM
+target: log1p_duration_min
+prediction_transform: expm1
+refit_mode: fixed_budget_from_inner_validation
+best_epoch_from_inner_val: 39
+early_stopping_patience_inner_val: 30
+seed_list: [42, 43, 44]
+params:
+  n_epochs: 39
+  batch_size: 512
+  lr: 0.00033070652473618896
+  weight_decay: 0.0
+  dropout: 0.11061883113135532
+  n_threads: 4

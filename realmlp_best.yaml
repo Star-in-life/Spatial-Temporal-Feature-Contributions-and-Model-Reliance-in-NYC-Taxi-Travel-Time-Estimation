@@ -1,0 +1,16 @@
+model: RealMLP
+target: log1p_duration_min
+prediction_transform: expm1
+refit_mode: TruncatedCosineSchedule_24_of_120_epochs
+completed_epochs_from_inner_val: 24
+schedule_horizon_epochs: 120
+early_stopping_patience_inner_val: 30
+seed_list: [42, 43, 44]
+params:
+  n_epochs_completed: 24
+  schedule_horizon_epochs: 120
+  batch_size: 512
+  lr: 0.14147944317521716
+  wd: 0.0018338945994253915
+  p_drop: 0.2627636696182051
+  n_threads: 4

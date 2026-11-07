@@ -1,0 +1,71 @@
+{
+  "selection_protocol": {
+    "split": "F3 configuration selection on Jan-Aug inner training and September inner validation; configurations transferred to fixed-budget refits.",
+    "optuna_version": "4.5.0",
+    "sampler": "TPESampler(seed=20261026)",
+    "model_seed_during_hpo": 42,
+    "evaluation_seeds": [
+      42,
+      43,
+      44
+    ],
+    "inner_train_rows_reported_in_main5": 79997,
+    "inner_train_rows_observed_in_packaged_S90k": 80000,
+    "inner_validation_rows": 10000,
+    "provenance_status": "Historical HPO input IDs, runner and study database are absent. The reported 79,997 inner-training rows cannot be verified against the packaged S90k, which contains 80,000 Jan-Aug trips completed before September 1."
+  },
+  "models": {
+    "LightGBM": {
+      "n_estimators": 2500,
+      "early_stopping_patience": 100,
+      "learning_rate": 0.01238935393797345,
+      "max_depth": 9,
+      "num_leaves": 96,
+      "min_child_samples": 10,
+      "subsample": 0.85,
+      "subsample_freq": 0,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 4.333674922378128,
+      "reg_lambda": 0.0,
+      "n_jobs": 4,
+      "note": "Exact match to Paper v9 Sec IV-D (column sampling 0.85, no row bagging as subsample_freq=0) and main notebook. Note: DAP391m_Nhom27_Submission/configs/lightgbm_best.yaml had a static doc typo listing colsample_bytree=1.0, whereas actual trained checkpoints in both packages use colsample_bytree=0.85."
+    },
+    "CatBoost": {
+      "iterations": 1307,
+      "early_stopping_patience": 100,
+      "learning_rate": 0.03463288395343894,
+      "depth": 9,
+      "l2_leaf_reg": 0.0,
+      "random_strength": 0.0,
+      "task_type": "CPU",
+      "thread_count": 4
+    },
+    "RealMLP": {
+      "n_epochs_completed": 24,
+      "schedule_horizon_epochs": 120,
+      "early_stopping_patience": 30,
+      "lr": 0.14147944317521716,
+      "wd": 0.0018338945994253915,
+      "p_drop": 0.2627636696182051,
+      "batch_size": 512,
+      "n_threads": 4
+    },
+    "TabM": {
+      "n_epochs": 39,
+      "early_stopping_patience": 30,
+      "lr": 0.00033070652473618896,
+      "weight_decay": 0.0,
+      "dropout": 0.11061883113135532,
+      "batch_size": 512,
+      "n_threads": 4
+    },
+    "OSRM": {
+      "rule": "Use osrm_min when route_status == 'ok' and osrm_min > 0; otherwise use training median duration by OD pair, then weekly slot, then global. Predictions are minutes and are multiplied by 60 for duration-error metrics.",
+      "deterministic": true
+    },
+    "TEMP": {
+      "rule": "Fit mean Haversine speed (km/h) by weekly slot using training rows with haversine_km > 0 and dur_min > 0. Replace missing slot speeds with the global valid-speed mean. Average dur_min * training slot speed by OD pair. Predict this OD mean divided by query slot speed (clipped below at 1e-8). For nonfinite predictions, use training median duration by OD pair, then weekly slot, then global. Predictions are minutes.",
+      "deterministic": true
+    }
+  }
+}

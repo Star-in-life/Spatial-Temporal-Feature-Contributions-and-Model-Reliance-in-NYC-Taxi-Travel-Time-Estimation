@@ -1,0 +1,20 @@
+model: LightGBM
+target: log1p_duration_min
+prediction_transform: expm1
+refit_mode: fixed_budget_from_inner_validation
+best_iteration_from_inner_val: 2500
+early_stopping_patience_inner_val: 100
+seed_list: [42, 43, 44]
+params:
+  n_estimators: 2500
+  learning_rate: 0.01238935393797345
+  max_depth: 9
+  num_leaves: 96
+  min_child_samples: 10
+  subsample: 0.85
+  subsample_freq: 0
+  colsample_bytree: 0.85
+  reg_alpha: 4.333674922378128
+  reg_lambda: 0.0
+  n_jobs: 4
+note: "Matches Paper v9 Sec IV-D ('column sampling of 0.85 and no row bagging') and actual trained checkpoints in both main system and 1M package."

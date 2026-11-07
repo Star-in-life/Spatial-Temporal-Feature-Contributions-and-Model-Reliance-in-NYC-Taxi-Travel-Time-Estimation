@@ -9,7 +9,7 @@ and generating table_vi_complete_benchmark.csv.
 import pandas as pd
 from pathlib import Path
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
+WORKSPACE = Path(__file__).resolve().parents[1]
 REFITS_DIR = WORKSPACE / "results/refits"
 
 ablation_df = pd.read_csv(REFITS_DIR / "test_ablation_summary.csv")

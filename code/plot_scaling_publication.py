@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
+WORKSPACE = Path(__file__).resolve().parents[1]
 RES_DIR = WORKSPACE / "results/scaling"
 DATA_FILE = RES_DIR / "scaling_summary_aggregated.csv"
 

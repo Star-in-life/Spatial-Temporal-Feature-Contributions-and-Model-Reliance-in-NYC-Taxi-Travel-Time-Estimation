@@ -22,9 +22,9 @@ from sklearn.impute import SimpleImputer
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
-DATA_DIR = WORKSPACE / "data/2015/processed"
-SUBSETS_DIR = WORKSPACE / "data/2015/subsets"
+WORKSPACE = Path(__file__).resolve().parents[1]
+DATA_DIR = WORKSPACE / "clean_processed"
+SUBSETS_DIR = WORKSPACE / "scaling_subsets"
 DIAG_DIR = WORKSPACE / "results/diagnostics"
 DIAG_DIR.mkdir(parents=True, exist_ok=True)
 

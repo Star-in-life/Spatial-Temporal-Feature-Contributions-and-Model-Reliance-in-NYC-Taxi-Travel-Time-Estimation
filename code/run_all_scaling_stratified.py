@@ -40,6 +40,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 import numpy as np
+from metrics import compute_metrics_s
 import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder
@@ -51,9 +52,9 @@ from pytabkit.models.training.lightning_modules import TabNNModule
 from tabm import TabM
 import cloudpickle
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
-DATA_DIR = WORKSPACE / "data/2015/processed"
-SUBSETS_DIR = WORKSPACE / "data/2015/subsets"
+WORKSPACE = Path(__file__).resolve().parents[1]
+DATA_DIR = WORKSPACE / "clean_processed"
+SUBSETS_DIR = WORKSPACE / "scaling_subsets"
 RES_DIR = WORKSPACE / "results/scaling"
 CK_DIR = RES_DIR / "checkpoints"
 PRED_DIR = RES_DIR / "predictions"
@@ -91,28 +92,6 @@ def thermal_guard(threshold=72, target=65, label=""):
 def minutes_pred(p: np.ndarray) -> np.ndarray:
     return np.maximum(0.0, np.expm1(np.clip(np.asarray(p).reshape(-1), -20.0, 12.0)))
 
-def compute_metrics_s(y_true_min: np.ndarray, y_pred_min: np.ndarray) -> Dict[str, float]:
-    y_true_s = np.asarray(y_true_min, dtype='float64') * 60.0
-    y_pred_s = np.asarray(y_pred_min, dtype='float64') * 60.0
-    err = y_true_s - y_pred_s
-    mae = float(np.mean(np.abs(err)))
-    rmse = float(np.sqrt(np.mean(err ** 2)))
-    medae = float(np.median(np.abs(err)))
-    wape = float(np.sum(np.abs(err)) / np.maximum(np.sum(y_true_s), 1e-8))
-    ss_tot = np.sum((y_true_s - np.mean(y_true_s)) ** 2)
-    ss_res = np.sum(err ** 2)
-    r2 = float(1.0 - ss_res / np.maximum(ss_tot, 1e-8))
-    log_true = np.log1p(np.maximum(np.asarray(y_true_min, dtype='float64'), 0.0))
-    log_pred = np.log1p(np.maximum(np.asarray(y_pred_min, dtype='float64'), 0.0))
-    rmsle = float(np.sqrt(np.mean((log_true - log_pred) ** 2)))
-    return {
-        'MAE': mae,
-        'RMSE': rmse,
-        'MedAE': medae,
-        'WAPE': wape,
-        'RMSLE': rmsle,
-        'R2': r2
-    }
 
 # ==========================================
 # 1. BASELINE RUNNER (OSRM & TEMP)

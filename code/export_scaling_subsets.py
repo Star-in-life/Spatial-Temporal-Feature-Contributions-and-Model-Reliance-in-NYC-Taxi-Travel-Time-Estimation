@@ -22,9 +22,9 @@ import pandas as pd
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
-DATA_DIR = WORKSPACE / "data/2015/processed"
-SUBSETS_DIR = WORKSPACE / "data/2015/subsets"
+WORKSPACE = Path(__file__).resolve().parents[1]
+DATA_DIR = WORKSPACE / "clean_processed"
+SUBSETS_DIR = WORKSPACE / "scaling_subsets"
 SUBSETS_DIR.mkdir(parents=True, exist_ok=True)
 
 def compute_sha_rank(series: pd.Series) -> pd.Series:
@@ -133,6 +133,10 @@ def main():
             test_sub.to_parquet(SUBSETS_DIR / f"test_{label}.parquet", index=False)
         else:
             # 1.080k uses the full pool
+            val_df.to_parquet(SUBSETS_DIR / f"val_{label}.parquet", index=False)
+            test_df.to_parquet(SUBSETS_DIR / f"test_{label}.parquet", index=False)
+
+        if n == 1_080_000:
             val_df.to_parquet(SUBSETS_DIR / f"val_{label}.parquet", index=False)
             test_df.to_parquet(SUBSETS_DIR / f"test_{label}.parquet", index=False)
 

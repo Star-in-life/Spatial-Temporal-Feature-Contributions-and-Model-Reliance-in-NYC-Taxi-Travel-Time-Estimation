@@ -27,8 +27,8 @@ import pandas as pd
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
-DATA_DIR = WORKSPACE / "data/2015/processed"
+WORKSPACE = Path(__file__).resolve().parents[1]
+DATA_DIR = WORKSPACE / "clean_processed"
 CACHE_DIR = WORKSPACE / "data/osrm_cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -185,7 +185,7 @@ def get_or_compute_osrm(df: pd.DataFrame, split_name: str) -> pd.DataFrame:
     cache_path = CACHE_DIR / f"osrm_{split_name}.parquet"
     if cache_path.exists():
         osrm_df = pd.read_parquet(cache_path)
-        if len(osrm_df) == len(df):
+        if "trip_id" in osrm_df and np.array_equal(osrm_df["trip_id"].astype(str).to_numpy(), df["trip_id"].astype(str).to_numpy()):
             print(f"[{split_name}] Loaded OSRM features from cache: {cache_path}")
             return osrm_df
 
@@ -302,9 +302,10 @@ def build_split(raw_path: Path, split_name: str, train_ref_df: pd.DataFrame = No
 
 def main():
     t_start = time.time()
-    raw_train = DATA_DIR / "raw_sampled_train.parquet"
-    raw_val = DATA_DIR / "raw_sampled_val.parquet"
-    raw_test = DATA_DIR / "raw_sampled_test.parquet"
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    raw_train = WORKSPACE / "raw" / "raw_sampled_train.parquet"
+    raw_val = WORKSPACE / "raw" / "raw_sampled_val.parquet"
+    raw_test = WORKSPACE / "raw" / "raw_sampled_test.parquet"
 
     assert raw_train.exists() and raw_val.exists() and raw_test.exists(), "Raw sampled files missing!"
 

@@ -23,14 +23,13 @@ import pandas as pd
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-WORKSPACE = Path("d:/Download/DAP391m/run_1m_2015").resolve()
-DATA_DIR = WORKSPACE / "data/2015/processed"
-SUBSETS_DIR = WORKSPACE / "data/2015/subsets"
+WORKSPACE = Path(__file__).resolve().parents[1]
+DATA_DIR = WORKSPACE / "clean_processed"
+SUBSETS_DIR = WORKSPACE / "scaling_subsets"
 REFITS_DIR = WORKSPACE / "results/refits"
 PRED_DIR = REFITS_DIR / "predictions"
 CK_DIR = REFITS_DIR / "checkpoints"
 DIAG_DIR = WORKSPACE / "results/diagnostics"
-DIAG_DIR.mkdir(parents=True, exist_ok=True)
 
 MODELS = ['LightGBM', 'CatBoost', 'RealMLP', 'TabM']
 SEEDS = [42, 43, 44]
@@ -79,6 +78,7 @@ class BaselineModel:
             return np.where(np.isfinite(p), p, self.baseline_fallback(df))
 
 def main():
+    DIAG_DIR.mkdir(parents=True, exist_ok=True)
     print("=" * 85)
     print("PHASE 5: STATISTICAL CONTRASTS & DIAGNOSTICS ON 90k TRAIN DATASET")
     print("=" * 85)

@@ -13,6 +13,7 @@ High-Performance Version:
 - Automatic Gate Pass verification upon completion.
 """
 
+import argparse
 import sys
 import time
 import hashlib
@@ -28,9 +29,14 @@ import pandas as pd
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-DATA_DIR = Path("d:/Download/DAP391m/run_1m_2015/data/2015/processed")
+WORKSPACE = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser(description="Sample the 2015 Azure taxi cohort.")
+parser.add_argument("--blacklist-dir", type=Path, required=True, help="Directory containing the original 120k train/val/test Parquet files.")
+parser.add_argument("--zones-path", type=Path, required=True, help="Path to the historical taxi_zones.shp file.")
+args = parser.parse_args()
+DATA_DIR = WORKSPACE / "raw"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
-SHP_PATH = Path("d:/Download/DAP391m/run_1m_2015/data/zones/unzipped/taxi_zones/taxi_zones.shp")
+SHP_PATH = args.zones_path
 
 # 1. Load Old 120,000 Blacklist
 print("Loading Old 120k Blacklist...")
@@ -39,7 +45,7 @@ old_tuples = set()
 dedup_cols = ['pickup_datetime', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude']
 
 for s in ['train', 'val', 'test']:
-    old_p = Path(f"independent_run_map2015/data/2015/processed/{s}.parquet")
+    old_p = args.blacklist_dir / f"{s}.parquet"
     odf = pd.read_parquet(old_p)
     old_ids.update(odf['trip_id'].astype(str))
     for row in zip(odf['pickup_datetime'], odf['pickup_longitude'], odf['pickup_latitude'], odf['dropoff_longitude'], odf['dropoff_latitude']):

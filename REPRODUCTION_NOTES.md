@@ -1,3 +1,5 @@
+> Hồ sơ bàn giao lịch sử. Hướng dẫn chạy hiện hành và kết quả kiểm tra nằm trong [REPRODUCE.md](REPRODUCE.md). Các đường dẫn máy cũ và ví dụ duration_s trong hồ sơ này không dùng làm lệnh tái lập hiện tại.
+
 # DAP391m — SỔ TAY KIỂM TOÁN TÁI LẬP & NHẬT KÝ LỖI KỸ THUẬT (REPRODUCTION NOTES)
 
 > **Mục đích**: Ghi nhận toàn bộ các phát hiện kiểm toán, đối chiếu siêu tham số thực thi (runtime checkpoint audit), các điểm đã khắc phục và quy tắc trích dẫn học thuật trong quá trình mở rộng tập dữ liệu NYC TLC 2015 lên **1.110.000 chuyến độc lập** (`1.080.000 TRAIN`, `10.000 VAL/DIAG`, `20.000 TEST`, trùng lắp `0` chuyến với bộ `120.000` chuyến của bài báo chính FJCAI 2027 v9).

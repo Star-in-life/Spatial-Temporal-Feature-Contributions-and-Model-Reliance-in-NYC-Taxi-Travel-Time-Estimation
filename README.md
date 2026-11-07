@@ -4,7 +4,7 @@ Hướng dẫn tái lập và đối chiếu báo cáo · Nhóm 27
 
 Ngày kiểm tra **07/11/2026**, múi giờ Asia/Saigon.
 
-Bản công khai **v1.0.0**. [Repository](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation) · [Tải ZIP toàn bộ hệ thống](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/download/v1.0.0/Spatial-Temporal%20Feature%20Contributions%20and%20Model%20Reliance%20in%20New%20York%20City%20Taxi%20Travel-Time%20Estimation.zip). ZIP chứa dữ liệu thật và toàn bộ tệp của gói ở thời điểm bàn giao.
+Bản công khai **v1.0.0**. [Repository](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation) · [Tải ZIP toàn bộ hệ thống](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/tag/v1.0.0). ZIP chứa dữ liệu thật và toàn bộ tệp của gói ở thời điểm bàn giao.
 
 Nếu tải bằng Git, cài Git LFS và chạy các lệnh sau để lấy đủ Parquet.
 

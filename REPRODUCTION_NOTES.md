@@ -3,7 +3,7 @@
 > Hướng dẫn chạy và kiểm tra checkpoint của gói công khai nằm trong [REPRODUCE.md](REPRODUCE.md).
 
 > **Mục đích**: Ghi nhận toàn bộ các phát hiện kiểm toán, đối chiếu siêu tham số thực thi (runtime checkpoint audit), các điểm đã khắc phục và quy tắc trích dẫn học thuật trong quá trình mở rộng tập dữ liệu NYC TLC 2015 lên **1.110.000 chuyến độc lập** (`1.080.000 TRAIN`, `10.000 VAL/DIAG`, `20.000 TEST`, trùng lắp `0` chuyến với bộ `120.000` chuyến của bài báo chính FJCAI 2027 v9).
-> **Đối chiếu với hệ thống v1.1.0:** 09/11/2026, giờ Việt Nam.
+> Bản ghi chú ngày 09/11/2026 đi cùng gói v1.1.1. Số liệu kiểm tra checkpoint lấy từ đợt kiểm trên hệ thống v1.1.0. [Kết quả kiểm 132 checkpoint](results/evaluation/checkpoint_verification_132.csv).
 
 ---
 
@@ -103,7 +103,6 @@ Mọi thông số thực thi đã được trích xuất trực tiếp từ đ�
 ---
 
 ## 4. DANH MỤC TỆP TRÊN GITHUB
-
 
 | Nhóm | Tệp trong repo | Mô tả |
 |---|---|---|

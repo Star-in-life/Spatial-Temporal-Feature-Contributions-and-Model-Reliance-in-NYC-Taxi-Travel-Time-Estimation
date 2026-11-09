@@ -4,10 +4,10 @@
 
 ## 0. Thông tin chung
 
-DAP391m, Nhóm 27, FPT University HCMC. Nhóm sinh viên gồm Lê Phúc Ân, Phu Vạn Thọ và Phạm Khánh. Tác giả bài báo gồm Le Phuc An, Phu Van Tho, Pham Khanh, Thu Le và Nhat-Tung Le. Bản bàn giao v1.1.0, ngày 07/11/2026 theo Asia/Saigon.
+DAP391m, Nhóm 27, FPT University HCMC. Nhóm sinh viên gồm Lê Phúc Ân, Phu Vạn Thọ và Phạm Khánh. Tác giả bài báo gồm Le Phuc An, Phu Van Tho, Pham Khanh, Thu Le và Nhat-Tung Le. Bản bàn giao v1.1.1 cập nhật tài liệu ngày 09/11/2026 theo Asia/Saigon. Kết quả kiểm tra checkpoint ghi trong hướng dẫn lấy từ đợt kiểm của v1.1.0 ngày 07/11/2026.
 
 - [Repository công khai](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation)
-- [ZIP đầy đủ v1.1.0](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/tag/v1.1.0)
+- [ZIP đầy đủ v1.1.1](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/tag/v1.1.1)
 - [Drive trọn bộ 1M do nhóm cung cấp](https://drive.google.com/drive/folders/1W7LOsbfC2R7-pCzprZscpJCUnUoJ9WQ0)
 - [Drive checkpoint công khai](https://drive.google.com/drive/folders/1_USV8_h-c5oZb1eLcRzvMbST-o2BswYq)
 - [Bài báo được đối chiếu](paper/main.pdf), SHA-256 23d9d7f6a262e0ab8d5c1437c8c064774c8844e68141ae238096bcbf8bb6d7f5.
@@ -23,13 +23,13 @@ Hai ZIP checkpoint nguồn trên Drive có kích thước và hash như sau. B�
 
 ## 1. Quick Start
 
-Tải ZIP v1.1.0 từ Releases và giải nén, hoặc dùng Git cùng Git LFS. Để tái lập đúng bản bàn giao, checkout tag v1.1.0.
+Tải ZIP v1.1.1 từ Releases và giải nén, hoặc dùng Git cùng Git LFS. Để tái lập đúng bản bàn giao, checkout tag v1.1.1.
 
 ```powershell
 git lfs install
 git clone https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation.git
 cd Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation
-git checkout v1.1.0
+git checkout v1.1.1
 git lfs pull
 ```
 
@@ -70,7 +70,7 @@ Các giá trị đối chiếu Table VI là dưới đây. WAPE, RMSLE và R² k
 | results/ | Metric ZIP, log, audit bàn giao và đầu ra đánh giá mới |
 | CSV/JSON/YAML ở gốc | Các bảng và cấu hình mô tả của bài |
 | paper/main.pdf | Bản main (5).pdf người dùng chọn |
-| REPRODUCTION_NOTES.md | Hồ sơ lịch sử, có ví dụ và đường dẫn cũ |
+| [REPRODUCTION_NOTES.md](REPRODUCTION_NOTES.md) | Nhật ký sửa lỗi, đối chiếu cấu hình thực thi, kết quả scaling và các giới hạn khi diễn giải |
 
 ## 3. Phần cứng và phần mềm
 

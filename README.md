@@ -1,8 +1,8 @@
 # Spatial–Temporal Feature Contributions and Model Reliance in New York City Taxi Travel-Time Estimation
 
-DAP391m · Nhóm 27 · FPT University HCMC · Bản v1.1.0
+DAP391m · Nhóm 27 · FPT University HCMC · Bản v1.1.1
 
-[**Hướng dẫn tái lập đầy đủ — REPRODUCE.md**](REPRODUCE.md) · [Bài báo](paper/main.pdf) · [Tải toàn bộ gói ZIP](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/tag/v1.1.0)
+[**Hướng dẫn tái lập đầy đủ — REPRODUCE.md**](REPRODUCE.md) · [Ghi chú kiểm toán tái lập](REPRODUCTION_NOTES.md) · [Bài báo](paper/main.pdf) · [Tải toàn bộ gói ZIP](https://github.com/Star-in-life/Spatial-Temporal-Feature-Contributions-and-Model-Reliance-in-NYC-Taxi-Travel-Time-Estimation/releases/tag/v1.1.1)
 
 Gói gồm dữ liệu 1.110.000 chuyến, bảy nấc TRAIN lồng nhau, mã nguồn, cấu hình, 132 checkpoint đã nhận từ nhóm và các bảng kết quả. Checkpoint và Parquet được lưu bằng Git LFS. ZIP trong Releases chứa các tệp thật, có thể giải nén và dùng trực tiếp.
 
